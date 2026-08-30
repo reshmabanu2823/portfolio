@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+Thumbs.db
+test_*.png
+render_preview_*.png
+reshma_banu_3d_typography.mp4
+reshma_banu_registered_3d.mp4
+reshma_banu_registered_3d_web.mp4
