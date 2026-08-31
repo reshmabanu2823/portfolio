@@ -12,6 +12,21 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header('Cache-Control', 'no-cache, must-revalidate')
         super().end_headers()
 
+    def translate_path(self, path):
+        # Clean URL rewrite for extensionless html routes
+        translated = super().translate_path(path)
+        if not os.path.exists(translated):
+            if os.path.exists(translated + '.html'):
+                return translated + '.html'
+            # Also check inside www.noth.in subdirectory
+            rel = os.path.relpath(translated, DIRECTORY)
+            alt = os.path.join(DIRECTORY, 'www.noth.in', rel)
+            if os.path.exists(alt):
+                return alt
+            if os.path.exists(alt + '.html'):
+                return alt + '.html'
+        return translated
+
 def run_server():
     os.chdir(DIRECTORY)
     handler = functools.partial(CustomHandler, directory=DIRECTORY)
@@ -39,11 +54,6 @@ def run_server():
     print(f"  Path    : {DIRECTORY}", flush=True)
     print("=" * 60, flush=True)
     print("Press Ctrl+C to stop the server.\n", flush=True)
-
-    try:
-        webbrowser.open(url)
-    except Exception as e:
-        print(f"Browser notice: {e}", flush=True)
 
     try:
         httpd.serve_forever()
