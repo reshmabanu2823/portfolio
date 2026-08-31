@@ -2,9 +2,18 @@ import http.server
 import functools
 import os
 import sys
-import webbrowser
+import mimetypes
 
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
+
+# Ensure common mime types are registered
+mimetypes.add_type('text/html', '')
+mimetypes.add_type('text/html', '.html')
+mimetypes.add_type('image/webp', '.webp')
+mimetypes.add_type('video/mp4', '.mp4')
+mimetypes.add_type('font/woff2', '.woff2')
+mimetypes.add_type('application/javascript', '.js')
+mimetypes.add_type('text/css', '.css')
 
 class CustomHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
@@ -12,9 +21,23 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header('Cache-Control', 'no-cache, must-revalidate')
         super().end_headers()
 
+    def guess_type(self, path):
+        # Prevent octet-stream downloads for extensionless routes
+        base, ext = os.path.splitext(path)
+        if not ext or ext == '.html':
+            return 'text/html; charset=utf-8'
+        return super().guess_type(path)
+
     def translate_path(self, path):
-        # Clean URL rewrite for extensionless html routes
         translated = super().translate_path(path)
+        
+        # If path is a directory and has index.html
+        if os.path.isdir(translated):
+            index = os.path.join(translated, 'index.html')
+            if os.path.exists(index):
+                return index
+
+        # If direct path does not exist, check for .html extension
         if not os.path.exists(translated):
             if os.path.exists(translated + '.html'):
                 return translated + '.html'
@@ -48,7 +71,7 @@ def run_server():
 
     url = f"http://localhost:{selected_port}/"
     print("=" * 60, flush=True)
-    print("  Nothin' Local Web Server", flush=True)
+    print("  Nothin' Local Web Server (MIME / Clean Routing Fixed)", flush=True)
     print(f"  Status  : Running", flush=True)
     print(f"  URL     : {url}", flush=True)
     print(f"  Path    : {DIRECTORY}", flush=True)
