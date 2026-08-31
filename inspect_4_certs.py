@@ -1,5 +1,4 @@
 import os
-import re
 
 WORKSPACE = os.path.dirname(os.path.abspath(__file__))
 html_path = os.path.join(WORKSPACE, 'www.noth.in', 'index.html')
@@ -7,9 +6,5 @@ html_path = os.path.join(WORKSPACE, 'www.noth.in', 'index.html')
 with open(html_path, 'r', encoding='utf-8') as f:
     html = f.read()
 
-idx = html.find('class="section studio"')
-if idx == -1:
-    idx = html.find('studio')
-
-print("Context around studio section:")
-print(html[idx-100:idx+2500])
+idx = html.find('cert_google_cloud.png')
+print(html[idx-400:idx+2600])
