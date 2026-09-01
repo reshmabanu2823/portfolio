@@ -8,3 +8,10 @@ render_preview_*.png
 reshma_banu_3d_typography.mp4
 reshma_banu_registered_3d.mp4
 reshma_banu_registered_3d_web.mp4
+
+# Large video files (>100MB)
+incognita_video.mp4
+*.mp4
+!/generated_video_showreel.mp4
+!/generated_video_1.mp4
+!/webguardian_video.mp4
