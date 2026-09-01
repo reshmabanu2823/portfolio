@@ -74,56 +74,15 @@ html, body{
 }
 </style>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=WindSong:wght@400;500&display=swap" rel="stylesheet">
 <style id="hero-editorial-perfect-styles">
 /* ===================================================================
-   HERO LANDING PAGE - PURE TEXT FORM (ENLARGED) + STUDIO BG + PHOTO
+   EDITORIAL HERO - EXACT REFERENCE 2-COLUMN LAYOUT
    =================================================================== */
 
-/* Hero Container - Strict 100vh viewport, sits at top */
+/* Hero Container - Strict 100vh viewport */
 .section-w {
   position: relative !important;
   width: 100% !important;
@@ -137,13 +96,13 @@ html, body{
   align-items: center !important;
   justify-content: center !important;
   overflow: hidden !important;
-  background: #fbfbfd !important;
+  background: #fbf9f6 !important;
   box-sizing: border-box !important;
   z-index: 1 !important;
 }
 
-/* Dedicated Background Image Layer (Original Size, Quality & Alignment) */
-.hero-studio-bg-layer {
+/* Dedicated Decorative Background Layer */
+.hero-editorial-bg-canvas {
   position: absolute !important;
   inset: 0 !important;
   width: 100% !important;
@@ -153,15 +112,43 @@ html, body{
   overflow: hidden !important;
 }
 
-.hero-studio-bg-layer img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center center !important;
-  display: block !important;
+/* Soft Corner Ambient Blurs */
+.hero-ambient-blur-tl {
+  position: absolute;
+  top: -15%;
+  left: -10%;
+  width: 45vw;
+  height: 45vw;
+  max-width: 650px;
+  max-height: 650px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(66, 133, 244, 0.12) 0%, rgba(66, 133, 244, 0.04) 50%, transparent 75%);
+  filter: blur(50px);
 }
 
-/* Top Subtitle & Book a Call Button Area (Anchored to top-left) */
+.hero-ambient-blur-br {
+  position: absolute;
+  bottom: -15%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  max-width: 750px;
+  max-height: 750px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(234, 67, 53, 0.08) 0%, rgba(251, 188, 5, 0.09) 45%, transparent 75%);
+  filter: blur(60px);
+}
+
+/* Background Geometric Vector Overlays */
+.hero-bg-vectors {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.85;
+}
+
+/* Top Subtitle & Book a Call Button Area (Anchored top-left) */
 .section-fake-hero {
   position: absolute !important;
   top: 0 !important;
@@ -192,7 +179,7 @@ html, body{
 
 .section-fake-hero .p-l,
 .section-fake-hero .hero-subtitle-direct {
-  color: #111111 !important;
+  color: #1a1a1a !important;
   opacity: 1 !important;
   font-size: clamp(14px, 1.15vw, 17.5px) !important;
   line-height: 1.4 !important;
@@ -237,7 +224,7 @@ html, body{
 }
 
 /* ===================================================================
-   MAIN HERO STAGE (CENTERED 2-COLUMN LAYOUT)
+   MAIN HERO STAGE (TWO-COLUMN 50/50 LAYOUT)
    =================================================================== */
 .section.hero-home {
   position: relative !important;
@@ -247,7 +234,7 @@ html, body{
   min-height: 0 !important;
   max-height: none !important;
   margin: 0 !important;
-  padding: 0 !important;
+  padding: 0 clamp(24px, 4vw, 80px) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -257,96 +244,98 @@ html, body{
 
 .hero-editorial-stage {
   position: relative !important;
-  width: 90% !important;
-  max-width: 1400px !important;
+  width: 100% !important;
+  max-width: 1320px !important;
   display: grid !important;
-  grid-template-columns: 1.2fr 0.8fr !important;
+  grid-template-columns: 1fr 1fr !important;
   align-items: center !important;
   justify-content: space-between !important;
-  gap: clamp(24px, 5vw, 70px) !important;
+  gap: clamp(30px, 6vw, 90px) !important;
   margin: 0 auto !important;
 }
 
-/* Left Column: Pure Live HTML/CSS Typography (Enlarged) */
+/* Left Column: Name & Signature Treatment */
 .hero-editorial-text-col {
   position: relative !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
   justify-content: center !important;
-  padding-left: clamp(10px, 2.5vw, 40px) !important;
+  padding-left: clamp(0px, 1.5vw, 20px) !important;
   z-index: 2 !important;
 }
 
-/* Top Floating Accent Dot */
-.hero-dot-top-single {
-  width: 6px;
-  height: 6px;
+/* Top Accent Dot */
+.hero-accent-dot-top {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: #4285F4;
-  margin-bottom: clamp(12px, 1.8vh, 22px);
-  margin-left: 60px;
+  margin-bottom: clamp(14px, 2vh, 24px);
+  margin-left: 2px;
   display: block;
 }
 
-/* "Reshma." - Large High-Contrast Editorial Serif Text */
-.hero-name-serif-large {
-  font-family: 'Playfair Display', 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif !important;
-  font-size: clamp(75px, 8.5vw, 132px) !important;
-  font-weight: 600 !important;
-  line-height: 0.92 !important;
-  letter-spacing: -0.025em !important;
+/* "Reshma." - Large Elegant Serif Font */
+.hero-name-serif-heading {
+  font-family: 'Bodoni Moda', 'Playfair Display', 'Cormorant Garamond', Georgia, serif !important;
+  font-size: clamp(64px, 7.2vw, 115px) !important;
+  font-weight: 400 !important;
+  line-height: 0.95 !important;
+  letter-spacing: 0.015em !important;
   color: #111111 !important;
   margin: 0 !important;
   padding: 0 !important;
   display: inline-flex !important;
   align-items: baseline !important;
   white-space: nowrap !important;
+  text-shadow: none !important;
 }
 
-.hero-name-dot {
-  color: #4285F4 !important;
+.hero-name-serif-dot {
+  color: #c86d51 !important;
   font-size: 0.9em !important;
   margin-left: 3px !important;
   display: inline-block !important;
 }
 
-/* "Banu" - Large Flowing Signature Cursive Script Text */
-.hero-name-script-large {
-  font-family: 'Herr Von Muellerhoff', 'Alex Brush', 'WindSong', 'Great Vibes', cursive !important;
-  font-size: clamp(100px, 12vw, 185px) !important;
+/* "Banu" - Signature Script directly beneath, overlapping baseline */
+.hero-name-script-heading {
+  font-family: 'Alex Brush', 'Allura', 'WindSong', cursive !important;
+  font-size: clamp(84px, 9.6vw, 155px) !important;
   font-weight: 400 !important;
-  line-height: 0.82 !important;
-  color: #1a1a1a !important;
-  margin: -0.16em 0 0 0.16em !important;
+  line-height: 0.85 !important;
+  letter-spacing: 0.01em !important;
+  color: #111111 !important;
+  margin: -0.12em 0 0 0.15em !important;
   padding: 0 !important;
   display: block !important;
   white-space: nowrap !important;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.04)) !important;
+  text-shadow: none !important;
 }
 
-/* Four Signature Accent Dots below Banu */
-.hero-dots-bottom-row {
+/* Four Small Solid Colored Dots (Google Palette) */
+.hero-google-dots-row {
   display: flex !important;
   align-items: center !important;
   gap: 15px !important;
-  margin-top: clamp(18px, 2.5vh, 32px) !important;
-  margin-left: 8px !important;
+  margin-top: clamp(20px, 2.8vh, 36px) !important;
+  margin-left: 6px !important;
 }
 
-.hero-dots-bottom-row .dot {
+.hero-google-dots-row .g-dot {
   width: 9px;
   height: 9px;
   border-radius: 50%;
   display: inline-block;
 }
 
-.hero-dots-bottom-row .dot-blue { background: #4285F4; }
-.hero-dots-bottom-row .dot-red { background: #EA4335; }
-.hero-dots-bottom-row .dot-yellow { background: #FBBC05; }
-.hero-dots-bottom-row .dot-green { background: #34A853; }
+.hero-google-dots-row .g-blue { background: #4285F4; }
+.hero-google-dots-row .g-red { background: #EA4335; }
+.hero-google-dots-row .g-yellow { background: #FBBC05; }
+.hero-google-dots-row .g-green { background: #34A853; }
 
-/* Right Column: Original Photo in High-End Portrait Card */
+/* Right Column: Portrait Photo */
 .hero-editorial-portrait-col {
   position: relative !important;
   display: flex !important;
@@ -355,27 +344,25 @@ html, body{
   z-index: 2 !important;
 }
 
-.hero-editorial-photo-card {
+.hero-editorial-photo-wrap {
   position: relative !important;
-  width: clamp(270px, 28vw, 420px) !important;
-  aspect-ratio: 1 / 1.18 !important;
-  border-radius: 18px !important;
+  width: 100% !important;
+  max-width: clamp(290px, 32vw, 440px) !important;
+  aspect-ratio: 1 / 1.25 !important;
+  border-radius: 12px !important;
   overflow: hidden !important;
-  background: #0f1318 !important;
-  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.22), 0 5px 15px rgba(0, 0, 0, 0.08) !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  cursor: pointer !important;
+  background: #f0ece6 !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.09), 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease !important;
 }
 
-.hero-editorial-photo-card:hover {
-  transform: translateY(-6px) !important;
-  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.28), 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+.hero-editorial-photo-wrap:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.13), 0 6px 18px rgba(0, 0, 0, 0.06) !important;
 }
 
-.hero-editorial-photo-card img {
-  position: absolute !important;
-  inset: 0 !important;
+.hero-editorial-photo-wrap img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
@@ -403,12 +390,12 @@ html, body{
     height: auto !important;
     min-height: 100vh !important;
     max-height: none !important;
-    padding-top: 100px !important;
-    padding-bottom: 50px !important;
+    padding-top: 120px !important;
+    padding-bottom: 60px !important;
   }
   .section-fake-hero {
     position: relative !important;
-    padding-top: 40px !important;
+    padding-top: 30px !important;
   }
   .hero-editorial-stage {
     grid-template-columns: 1fr !important;
@@ -419,20 +406,18 @@ html, body{
     align-items: center !important;
     padding-left: 0 !important;
   }
-  .hero-dot-top-single {
+  .hero-accent-dot-top {
     margin-left: auto !important;
     margin-right: auto !important;
   }
-  .hero-dots-bottom-row {
+  .hero-google-dots-row {
     justify-content: center !important;
   }
-  .hero-editorial-photo-card {
-    width: clamp(220px, 70vw, 320px) !important;
-    border-radius: 14px !important;
+  .hero-editorial-photo-wrap {
+    max-width: clamp(240px, 75vw, 340px) !important;
   }
 }
 </style>
-
 </head><body><div class="code-embed-css w-embed"><style>
 /* ------------------------- Variables ------------------------------------------- */
  html { font-size: calc(0rem + 1vw); }
@@ -553,12 +538,74 @@ padding: 0 !important;
     }
 }
 </style></div><nav delay="1.5" opacity="" no-scroll="" class="nav-boiler"><a href="/" aria-current="page" class="nav-logo-wrap w-inline-block w--current"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2679.8 291" fill="none" class="nav-logo"><path d="M0.0 7.0H131.97202797202797Q178.96503496503496 7.0 205.3986013986014 27.951048951048946Q231.83216783216784 48.90209790209789 231.83216783216784 86.8881118881119Q231.83216783216784 115.47552447552448 216.95104895104896 133.2937062937063Q202.06993006993008 151.1118881118881 175.04895104895107 156.98601398601397V157.76923076923077Q196.979020979021 161.68531468531467 208.33566433566435 176.76223776223776Q219.6923076923077 191.83916083916085 223.4125874125874 210.04895104895104Q227.13286713286715 228.25874125874125 228.6993006993007 252.93006993006992Q229.8741258741259 268.5944055944056 231.04895104895107 275.25174825174827Q232.22377622377624 281.90909090909093 235.74825174825176 283.0839160839161V287.0H162.51748251748253Q159.7762237762238 284.2587412587413 158.7972027972028 277.6013986013986Q157.8181818181818 270.94405594405595 157.42657342657344 258.02097902097904Q156.64335664335664 237.26573426573427 154.09790209790208 223.55944055944056Q151.55244755244755 209.85314685314685 142.34965034965035 199.6713286713287Q133.14685314685315 189.4895104895105 114.34965034965035 189.4895104895105H70.4895104895105V287.0H0.0ZM118.26573426573427 131.92307692307693Q139.8041958041958 131.92307692307693 150.5734265734266 123.69930069930071Q161.34265734265736 115.47552447552448 161.34265734265736 98.24475524475525Q161.34265734265736 81.013986013986 150.5734265734266 72.79020979020979Q139.8041958041958 64.56643356643357 118.26573426573427 64.56643356643357H70.4895104895105V131.92307692307693Z" fill="currentColor" class="nav-r-first"></path><path d="M249.74825174825176 7.0H462.0V64.56643356643357H320.23776223776224V114.3006993006993H442.4195804195804V171.86713286713285H320.23776223776224V229.43356643356643H464.34965034965035V287.0H249.74825174825176Z" fill="currentColor" class="nav-e"></path><path d="M478.34965034965035 191.83916083916085H549.6223776223776Q549.6223776223776 214.94405594405595 565.090909090909 225.71328671328672Q580.5594405594405 236.4825174825175 606.013986013986 236.4825174825175Q625.2027972027972 236.4825174825175 635.3846153846154 229.62937062937064Q645.5664335664335 222.7762237762238 645.5664335664335 211.41958041958043Q645.5664335664335 200.84615384615384 638.7132867132866 194.1888111888112Q631.8601398601398 187.53146853146853 620.6993006993007 183.02797202797203Q609.5384615384615 178.52447552447552 588.0 172.25874125874125L578.9930069930069 169.5174825174825Q550.4055944055945 160.90209790209792 530.8251748251748 151.1118881118881Q511.24475524475525 141.32167832167832 499.1048951048951 125.26573426573427Q486.96503496503493 109.20979020979021 486.96503496503493 85.71328671328672Q486.96503496503493 42.244755244755254 516.7272727272727 21.48951048951048Q546.4895104895105 0.7342657342657049 595.048951048951 0.7342657342657049Q627.9440559440559 0.7342657342657049 654.5734265734266 11.895104895104879Q681.2027972027972 23.055944055944053 697.0629370629371 43.61538461538461Q712.9230769230769 64.17482517482517 713.7062937062938 91.97902097902099H642.4335664335664Q640.083916083916 75.9230769230769 627.7482517482517 66.7202797202797Q615.4125874125874 57.517482517482506 595.048951048951 57.517482517482506Q578.6013986013986 57.517482517482506 568.8111888111888 63.195804195804186Q559.020979020979 68.87412587412587 559.020979020979 80.62237762237763Q559.020979020979 89.62937062937061 564.3076923076923 95.6993006993007Q569.5944055944055 101.76923076923077 579.972027972028 106.07692307692308Q590.3496503496503 110.38461538461539 610.3216783216783 116.25874125874125Q646.7412587412587 127.22377622377621 667.4965034965035 135.83916083916083Q688.2517482517483 144.45454545454544 702.9370629370629 161.09790209790208Q717.6223776223776 177.74125874125872 717.6223776223776 204.76223776223776Q717.6223776223776 231.3916083916084 704.5034965034965 251.36363636363637Q691.3846153846154 271.3356643356643 666.3216783216783 282.3006993006993Q641.2587412587412 293.26573426573424 606.7972027972028 293.26573426573424Q569.986013986014 293.26573426573424 540.8111888111888 281.12587412587413Q511.6363636363636 268.986013986014 494.993006993007 246.07692307692307Q478.34965034965035 223.16783216783216 478.34965034965035 191.83916083916085Z" fill="currentColor" class="nav-s"></path><path d="M731.6223776223776 7.0H802.1118881118881V116.65034965034965H898.0559440559441V7.0H968.5454545454545V287.0H898.0559440559441V174.2167832167832H802.1118881118881V287.0H731.6223776223776Z" fill="currentColor" class="nav-h"></path><path d="M982.5454545454545 7.0H1068.6993006993007L1126.2657342657342 185.57342657342656H1127.048951048951L1184.6153846153845 7.0H1270.7692307692307V287.0H1204.1958041958042V112.73426573426573H1203.4125874125875L1151.3286713286714 287.0H1101.9860139860139L1049.902097902098 112.73426573426573H1049.118881118881V287.0H982.5454545454545Z" fill="currentColor" class="nav-m"></path><path d="M1391.2867132867134 7.0H1462.167832167832L1569.4685314685314 287.0H1492.3216783216783L1474.3076923076924 228.65034965034965H1378.3636363636365L1360.3496503496503 287.0H1284.7692307692307ZM1458.6433566433566 175.0 1426.923076923077 71.61538461538461H1426.13986013986L1394.4195804195804 175.0Z" fill="currentColor" class="nav-a1"></path><path d="M1643.4685314685314 7.0H1779.3566433566434Q1868.2517482517483 7.0 1868.2517482517483 77.48951048951048Q1868.2517482517483 101.37762237762237 1856.3076923076924 115.86713286713287Q1844.3636363636363 130.35664335664336 1824.7832167832169 137.013986013986V137.7972027972028Q1849.062937062937 142.1048951048951 1864.13986013986 158.55244755244755Q1879.2167832167831 175.0 1879.2167832167831 204.3706293706294Q1879.2167832167831 247.44755244755245 1854.1538461538462 267.2237762237762Q1829.090909090909 287.0 1783.2727272727273 287.0H1643.4685314685314ZM1762.909090909091 229.43356643356643Q1786.013986013986 229.43356643356643 1796.5874125874125 222.1888111888112Q1807.1608391608393 214.94405594405595 1807.1608391608393 196.14685314685315Q1807.1608391608393 177.34965034965035 1796.5874125874125 170.3006993006993Q1786.013986013986 163.25174825174827 1762.909090909091 163.25174825174827H1713.958041958042V229.43356643356643ZM1760.951048951049 120.17482517482517Q1777.7902097902097 120.17482517482517 1786.993006993007 114.30069930069929Q1796.1958041958042 108.42657342657341 1796.1958041958042 92.37062937062936Q1796.1958041958042 76.3146853146853 1786.993006993007 70.44055944055944Q1777.7902097902097 64.56643356643357 1760.951048951049 64.56643356643357H1713.958041958042V120.17482517482517Z" fill="currentColor" class="nav-b"></path><path d="M1999.7342657342658 7.0H2070.6153846153848L2177.916083916084 287.0H2100.769230769231L2082.755244755245 228.65034965034965H1986.811188811189L1968.7972027972028 287.0H1893.2167832167831ZM2067.090909090909 175.0 2035.3706293706293 71.61538461538461H2034.5874125874125L2002.8671328671328 175.0Z" fill="currentColor" class="nav-a2"></path><path d="M2191.916083916084 7.0H2262.4055944055945L2360.3076923076924 173.43356643356643H2361.0909090909095V7.0H2431.58041958042V287.0H2361.0909090909095L2263.1888111888115 120.56643356643357H2262.4055944055945V287.0H2191.916083916084Z" fill="currentColor" class="nav-n"></path><path d="M2445.58041958042 185.96503496503496V7.0H2516.0699300699303V185.96503496503496Q2516.0699300699303 212.5944055944056 2527.4265734265737 224.14685314685315Q2538.783216783217 235.6993006993007 2562.671328671329 235.6993006993007Q2586.559440559441 235.6993006993007 2597.916083916084 224.14685314685315Q2609.2727272727275 212.5944055944056 2609.2727272727275 185.96503496503496V7.0H2679.762237762238V185.96503496503496Q2679.762237762238 239.6153846153846 2652.1538461538466 266.4405594405594Q2624.545454545455 293.26573426573424 2562.671328671329 293.26573426573424Q2500.797202797203 293.26573426573424 2473.1888111888115 266.4405594405594Q2445.58041958042 239.6153846153846 2445.58041958042 185.96503496503496Z" fill="currentColor" class="nav-u"></path></svg></a><div class="menu-w"><div class="menu-btn"><div class="menu-btn-text">menu</div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 6 6" fill="none" class="menu-svg"><rect y="4" width="2" height="2" fill="currentColor"></rect><rect x="4" y="4" width="2" height="2" fill="currentColor"></rect><rect width="2" height="2" fill="currentColor"></rect><rect x="4" width="2" height="2" fill="currentColor"></rect></svg></div><div class="menu-links-w"><a href="#works" data-taxi-link="" class="link-boiler">works</a><a href="#studio-video" data-taxi-link="" class="link-boiler">STUDIO</a><a href="#footer" class="link-boiler">contact</a></div></div></nav><div class="menu_wrapper"><div class="fake-el-menu"></div><div class="div-block-10"><div class="link-menu"><a href="/works" class="link-mob w-inline-block"><div>works</div></a><a href="#studio-video" class="link-mob w-inline-block"><div>studio</div></a></div><div class="link-btn-menu"><a href="https://calendly.com/hello-noth/30min" target="_blank" class="btn mob-menu w-inline-block"><div class="btn__text"><p class="btn__text-p">Let’s chat</p></div><div class="arrow-w"><div class="arrow black-blend"><div class="line-arrow"></div><div class="shape-arrow"></div></div></div></a><a href="mailto:hello@noth.in" class="btn email white w-inline-block"><div class="btn__text"><p class="btn__text-p">drop us an email</p></div><div class="arobase">@</div></a></div></div><div class="link-hero-bottom-w"><div delay="1.5" line="" no-scroll="">Creative studio in Paris</div><div delay="1.5" opacity="" no-scroll="" class="link-hero-lang-w"><div class="link-hero-w"><a href="https://www.linkedin.com/in/reshmabanu2328" target="_blank" class="link w-inline-block"><div>LKDN</div></a><a href="https://www.linkedin.com/in/reshmabanu2328" target="_blank" class="link hide-tablet w-inline-block"><div>Linkedin</div></a></div><a href="#" class="link-lang mob w-inline-block"><div>EN</div></a></div></div></div><div class="loader"><div class="loader-c"><div class="fake-top-loader"><div>This is some text inside of a div block.</div></div><div class="loader-anim"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 101.0 120" fill="none" class="n-load"><path d="M0.0 0.0H56.55944055944056Q76.69930069930071 0.0 88.02797202797203 8.97902097902098Q99.35664335664336 17.95804195804196 99.35664335664336 34.23776223776224Q99.35664335664336 46.489510489510494 92.97902097902099 54.12587412587413Q86.60139860139861 61.76223776223776 75.02097902097903 64.27972027972028V64.61538461538461Q84.41958041958043 66.2937062937063 89.2867132867133 72.75524475524475Q94.15384615384616 79.21678321678321 95.74825174825176 87.02097902097901Q97.34265734265735 94.82517482517483 98.01398601398603 105.3986013986014Q98.51748251748252 112.1118881118881 99.02097902097903 114.96503496503496Q99.52447552447553 117.81818181818181 101.03496503496504 118.32167832167832V120.0H69.65034965034965Q68.47552447552448 118.82517482517483 68.05594405594405 115.97202797202797Q67.63636363636364 113.11888111888112 67.46853146853148 107.58041958041957Q67.13286713286713 98.68531468531468 66.04195804195805 92.8111888111888Q64.95104895104896 86.93706293706293 61.006993006993014 82.57342657342657Q57.06293706293707 78.20979020979021 49.006993006993014 78.20979020979021H30.20979020979021V120.0H0.0ZM50.685314685314694 53.53846153846153Q59.91608391608392 53.53846153846153 64.53146853146853 50.01398601398601Q69.14685314685315 46.489510489510494 69.14685314685315 39.10489510489511Q69.14685314685315 31.72027972027972 64.53146853146853 28.195804195804193Q59.91608391608392 24.671328671328666 50.685314685314694 24.671328671328666H30.20979020979021V53.53846153846153Z" fill="currentColor"></path></svg><div class="loader-img-w"><img sizes="100vw" srcset="/assets/formes/bubble_gear-p-500.webp 500w, /assets/formes/bubble_gear-p-800.webp 800w, /assets/formes/bubble_gear-p-1080.webp 1080w, /assets/formes/bubble_gear.webp 1024w" alt="Transparent bubble wrap glass gear cogwheel." src="/assets/formes/bubble_gear.webp" loading="eager" class="loader-img coeur"/><img sizes="100vw" srcset="/assets/formes/blue_knot-p-500.webp 500w, /assets/formes/blue_knot-p-800.webp 800w, /assets/formes/blue_knot-p-1080.webp 1080w, /assets/formes/blue_knot.webp 1024w" alt="Iridescent metallic blue twisted torus knot." src="/assets/formes/blue_knot.webp" loading="eager" class="loader-img papier"/><img sizes="100vw" srcset="/assets/formes/black_puzzle-p-500.webp 500w, /assets/formes/black_puzzle-p-800.webp 800w, /assets/formes/black_puzzle-p-1080.webp 1080w, /assets/formes/black_puzzle.webp 1024w" alt="Shiny black inflatable puzzle piece." src="/assets/formes/black_puzzle.webp" loading="eager" class="loader-img star"/><img sizes="100vw" srcset="/assets/formes/disco_ball-p-500.webp 500w, /assets/formes/disco_ball-p-800.webp 800w, /assets/formes/disco_ball-p-1080.webp 1080w, /assets/formes/disco_ball.webp 1024w" alt="Mirror disco ball reflective tiled sphere." src="/assets/formes/disco_ball.webp" loading="eager" class="loader-img bonbon"/><img sizes="100vw" srcset="/assets/formes/disco_ball-p-500.webp 500w, /assets/formes/disco_ball-p-800.webp 800w, /assets/formes/disco_ball-p-1080.webp 1080w, /assets/formes/disco_ball.webp 1024w" alt="Mirror disco ball reflective tiled sphere." src="/assets/formes/disco_ball.webp" loading="eager" class="loader-img bonbon-copy"/><img sizes="100vw" srcset="/assets/formes/pink_network-p-500.webp 500w, /assets/formes/pink_network-p-800.webp 800w, /assets/formes/pink_network-p-1080.webp 1080w, /assets/formes/pink_network.webp 1024w" alt="Pink organic bubble slime network sphere." src="/assets/formes/pink_network.webp" loading="eager" class="loader-img chewinggum"/><img sizes="100vw" srcset="/assets/formes/black_puzzle-p-500.webp 500w, /assets/formes/black_puzzle-p-800.webp 800w, /assets/formes/black_puzzle-p-1080.webp 1080w, /assets/formes/black_puzzle.webp 1024w" alt="Shiny black inflatable puzzle piece." src="/assets/formes/black_puzzle.webp" loading="eager" class="loader-img papier"/><img sizes="100vw" srcset="/assets/formes/pink_network-p-500.webp 500w, /assets/formes/pink_network-p-800.webp 800w, /assets/formes/pink_network-p-1080.webp 1080w, /assets/formes/pink_network.webp 1024w" alt="Pink organic bubble slime network sphere." src="/assets/formes/pink_network.webp" loading="eager" class="loader-img papier"/><img sizes="100vw" srcset="/assets/formes/disco_ball-p-500.webp 500w, /assets/formes/disco_ball-p-800.webp 800w, /assets/formes/disco_ball-p-1080.webp 1080w, /assets/formes/disco_ball.webp 1024w" alt="Mirror disco ball reflective tiled sphere." src="/assets/formes/disco_ball.webp" loading="eager" class="loader-img papier"/><img sizes="100vw" srcset="/assets/formes/pink_network-p-500.webp 500w, /assets/formes/pink_network-p-800.webp 800w, /assets/formes/pink_network-p-1080.webp 1080w, /assets/formes/pink_network.webp 1024w" alt="Pink organic bubble slime network sphere." src="/assets/formes/pink_network.webp" loading="eager" class="loader-img papier"/><img sizes="100vw" srcset="/assets/formes/blue_knot-p-500.webp 500w, /assets/formes/blue_knot-p-800.webp 800w, /assets/formes/blue_knot-p-1080.webp 1080w, /assets/formes/blue_knot.webp 1024w" alt="Iridescent metallic blue twisted torus knot." src="/assets/formes/blue_knot.webp" loading="eager" class="loader-img papier"/><img sizes="100vw" srcset="/assets/formes/blue_knot-p-500.webp 500w, /assets/formes/blue_knot-p-800.webp 800w, /assets/formes/blue_knot-p-1080.webp 1080w, /assets/formes/blue_knot.webp 1024w" alt="Iridescent metallic blue twisted torus knot." src="/assets/formes/blue_knot.webp" loading="eager" class="loader-img papier"/></div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 41 50" fill="none" class="apos-load"><path d="M39.5359 0C39.9821 0 40.3447 0.195095 40.6235 0.585285C40.9582 0.975474 41.0697 1.39353 40.9582 1.83947L20.9631 48.9967C20.7958 49.6656 20.3217 50 19.5409 50H1.47004C1.02385 50 0.633448 49.8328 0.298802 49.4983C0.0199315 49.1081 -0.0637449 48.6901 0.0478035 48.2441L11.3421 1.17057C11.5652 0.39019 12.0393 0 12.7643 0H39.5359Z" fill="currentColor"></path></svg></div><div class="loader-nbr-w"><div>000</div></div></div></div><div class="page-wrapper"><div data-taxi="" class="main-wrapper"><div data-taxi-view="" class="page_view"><div class="section-w">
-  <!-- Dedicated Studio Background Image Layer (Original Size, Quality & Alignment) -->
-  <div class="hero-studio-bg-layer">
-    <img src="/assets/backgrounds/hero-studio-bg.png" alt="Studio Background" loading="eager" />
+  <!-- Dedicated Editorial Canvas Background Layer -->
+  <div class="hero-editorial-bg-canvas">
+    <!-- Soft Corner Ambient Glows -->
+    <div class="hero-ambient-blur-tl"></div>
+    <div class="hero-ambient-blur-br"></div>
+    
+    <!-- Vector Texture: Faint Waves (TL), Arcs & Lines (R), Dot Grid (TR/BL) -->
+    <svg class="hero-bg-vectors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" fill="none" preserveAspectRatio="none">
+      <defs>
+        <!-- Dot Pattern for Upper-Right and Lower-Left -->
+        <pattern id="dotGridHero" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+          <circle cx="3" cy="3" r="1.5" fill="rgba(180, 150, 130, 0.35)" />
+        </pattern>
+        <!-- Fine Dot Pattern for Upper-Right Matrix -->
+        <pattern id="dotGridTR" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1.2" fill="rgba(66, 133, 244, 0.28)" />
+        </pattern>
+      </defs>
+
+      <!-- Upper-Left Organic Wavy Texture Lines -->
+      <g stroke="rgba(180, 160, 145, 0.28)" stroke-width="1.2" fill="none">
+        <path d="M-100,60 C120,10 260,140 460,90 C620,50 780,160 920,110" />
+        <path d="M-100,110 C140,60 280,190 480,140 C640,100 800,210 940,160" />
+        <path d="M-100,160 C160,110 300,240 500,190 C660,150 820,260 960,210" />
+      </g>
+
+      <!-- Upper-Right Dot-Grid Matrix Pattern -->
+      <rect x="1560" y="70" width="260" height="200" fill="url(#dotGridTR)" opacity="0.8" />
+
+      <!-- Lower-Left Dot Grid Accent (from reference) -->
+      <rect x="180" y="860" width="180" height="120" fill="url(#dotGridHero)" />
+      
+      <!-- Lower-Left Vertical Stem Accent with Small Circles (from reference) -->
+      <g stroke="rgba(200, 109, 81, 0.45)" stroke-width="1.2" fill="none">
+        <line x1="120" y1="840" x2="120" y2="970" />
+        <circle cx="120" cy="845" r="4" fill="#fbf9f6" />
+        <circle cx="120" cy="890" r="5" fill="rgba(200, 109, 81, 0.7)" />
+        <circle cx="120" cy="935" r="3" fill="#fbf9f6" />
+        <circle cx="120" cy="965" r="2" fill="rgba(200, 109, 81, 0.5)" />
+      </g>
+
+      <!-- Right Column: Thin Geometric Arched Outline & Minimal Fluted Lines (from reference) -->
+      <g stroke="rgba(200, 109, 81, 0.35)" stroke-width="1.3" fill="none">
+        <!-- Main Elegant Tall Arch -->
+        <path d="M1480,1080 V500 A190,190 0 0,1 1860,500 V1080" />
+        <!-- Inner Subtle Arch Accent -->
+        <path d="M1540,1080 V550 A130,130 0 0,1 1800,550 V1080" stroke="rgba(200, 109, 81, 0.18)" />
+      </g>
+
+      <!-- Vertical Fluted Column Lines in Far-Right -->
+      <g stroke="rgba(200, 109, 81, 0.22)" stroke-width="1">
+        <line x1="1720" y1="60" x2="1720" y2="480" />
+        <line x1="1735" y1="60" x2="1735" y2="480" />
+        <line x1="1750" y1="60" x2="1750" y2="480" />
+        <line x1="1765" y1="60" x2="1765" y2="480" />
+        <line x1="1780" y1="60" x2="1780" y2="480" />
+        <line x1="1795" y1="60" x2="1795" y2="480" />
+        <line x1="1810" y1="60" x2="1810" y2="480" />
+        <line x1="1825" y1="60" x2="1825" y2="480" />
+        <line x1="1840" y1="60" x2="1840" y2="480" />
+        <line x1="1855" y1="60" x2="1855" y2="480" />
+        <line x1="1870" y1="60" x2="1870" y2="480" />
+        <line x1="1885" y1="60" x2="1885" y2="480" />
+      </g>
+    </svg>
   </div>
 
-  <!-- Top Navigation & Subtitle Action Block -->
+  <!-- Top Navigation & Subtitle Action Block (Untouched & Anchored Top-Left) -->
   <div class="section-fake-hero">
     <div class="div-block">
       <div class="p-l hero-subtitle-direct">
@@ -579,37 +626,59 @@ padding: 0 !important;
     </div>
   </div>
 
-  <!-- Main Hero Stage: Left Enlarged Pure Live Text + Right Original Photo -->
+  <!-- Main Hero Stage: Two-Column Editorial Grid (50% Text Left, 50% Photo Right) -->
   <section class="section hero-home">
     <div class="hero-editorial-stage">
       
-      <!-- Left Column: Pure Live Text Form (Enlarged) -->
+      <!-- Left Column: Name & Signature Treatment -->
       <div class="hero-editorial-text-col">
-        <span class="hero-dot-top-single"></span>
-        <h1 class="hero-name-serif-large">
-          Reshma<span class="hero-name-dot">.</span>
+        <!-- Single small dot positioned above-left of Reshma -->
+        <span class="hero-accent-dot-top"></span>
+
+        <!-- "Reshma." in large elegant serif font + colored period -->
+        <h1 class="hero-name-serif-heading">
+          Reshma<span class="hero-name-serif-dot">.</span>
         </h1>
-        <div class="hero-name-script-large">
+
+        <!-- "Banu" directly beneath in signature cursive script -->
+        <div class="hero-name-script-heading">
           Banu
         </div>
-        <div class="hero-dots-bottom-row">
-          <span class="dot dot-blue"></span>
-          <span class="dot dot-red"></span>
-          <span class="dot dot-yellow"></span>
-          <span class="dot dot-green"></span>
+
+        <!-- Four small solid colored dots (Blue, Red, Yellow, Green) -->
+        <div class="hero-google-dots-row">
+          <span class="g-dot g-blue"></span>
+          <span class="g-dot g-red"></span>
+          <span class="g-dot g-yellow"></span>
+          <span class="g-dot g-green"></span>
         </div>
       </div>
 
-      <!-- Right Column: Original Photo in Portrait Card Frame -->
+      <!-- Right Column: Provided Portrait Photo (Large & Clean Side-by-Side) -->
       <div class="hero-editorial-portrait-col">
-        <div class="hero-editorial-photo-card">
+        <div class="hero-editorial-photo-wrap">
           <img src="/assets/portrait/reshma-original-photo.jpg" alt="Reshma Banu" loading="eager" />
         </div>
       </div>
 
     </div>
   </section>
-</div><section class="section showreel"><div class="container showreel"><div class="space-150 mob-50"></div><h2 line="" class="h1-home balance">Most brands produce content.<br/>We prefer ideas.</h2><div class="space-65"></div><div class="video-showreel-w"><div class="video-showreel-full-w"><video src="/generated_video_showreel.mp4" autoplay="true" loop="" muted="" playsinline="true" crossorigin="anonymous" class="showreel-light" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video></div><div class="video-showreel-flip p-m"><div delay="0.2" line="">( The step aside )</div><div delay="0.2" line="" class="text-block-2">In a world of infinite images, the rare thing is clarity. Images defend ideas, experiences shift perception, and brands change how people see the world.</div></div></div></div></div></section><section id="works" class="section works"><div class="container works"><div class="works-word-w"><div class="div-block-2"><div class="works-word-block-state1"><div class="works-word">w</div></div><div class="works-word-block-state1"><div class="works-word o">o</div></div><div class="works-word-block-state1"><div class="works-word r">r</div></div><div class="works-word-block-state1"><div class="works-word k">k</div></div><div class="works-word-block-state1"><div class="works-word">s</div></div></div><div class="div-block-2 hide-tablet"><div class="works-word-block-state2"></div><div class="works-word-block-state2"></div><div class="works-word-block-state2"></div><div class="works-word-block-state2"></div><div class="works-word-block-state2"></div></div></div><div class="space-87"></div><div class="titile-section-work"><h2 line="" class="h3-style">Good brands communicate. <br/>Great brands surprise.</h2></div><div class="work_list_w w-dyn-list"><div role="list" class="work_list w-dyn-items"><div id="w-node-_4052a9ed-bc85-74d6-2f8d-4f251e3cf60d-78a9d1a3" role="listitem" class="work_item w-dyn-item"><h2 line="" class="title-work">Utopia</h2><p line="" class="short-p-work">Where taste meets meaning.</p><a href="/works/utopia" class="work-link w-inline-block" data-video-url="" onclick="openWorkVideo(event, this); return false;" style="display: block; position: relative; text-decoration: none; cursor: pointer;">
+</div><section class="section showreel"><div class="container showreel"><div class="space-150 mob-50"></div><h2 line="" class="h1-home balance">Most brands produce content.<br/>We prefer ideas.</h2><div class="space-65"></div><div class="video-showreel-w" style="display: flex; align-items: center; justify-content: space-between; gap: clamp(24px, 4vw, 56px); flex-wrap: wrap;">
+      <div class="video-showreel-flip p-m" style="flex: 1 1 300px; max-width: 440px;">
+        <div delay="0.2" line="">( The step aside )</div>
+        <div delay="0.2" line="" class="text-block-2">In a world of infinite images, the rare thing is clarity. Images defend ideas, experiences shift perception, and brands change how people see the world.</div>
+      </div>
+      <div class="video-showreel-media-side" style="display: flex; align-items: center; gap: clamp(20px, 2.5vw, 36px); flex: 1 1 auto; justify-content: flex-end; flex-wrap: wrap;">
+        <!-- Enlarged Portrait on the LEFT side of the video -->
+        <div class="showreel-portrait-w" style="position: relative; width: clamp(280px, 28vw, 460px); aspect-ratio: 1 / 1; border-radius: 18px; overflow: hidden; box-shadow: 0 25px 55px rgba(0,0,0,0.1), 0 4px 14px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.06); flex-shrink: 0; background: #f8fafc; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;" onmouseenter="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 35px 70px rgba(0,0,0,0.14)';" onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 25px 55px rgba(0,0,0,0.1), 0 4px 14px rgba(0,0,0,0.04)';">
+          <img src="/assets/portrait/reshma-portrait.jpg" alt="Reshma Banu" loading="eager" style="width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 18px;" />
+        </div>
+        <!-- Video Container on the right -->
+        <div class="video-showreel-full-w" style="position: relative; width: clamp(320px, 32vw, 520px); aspect-ratio: 16 / 10; border-radius: 18px; overflow: hidden; box-shadow: 0 25px 55px rgba(0,0,0,0.1), 0 4px 14px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.06); flex-shrink: 0;">
+          <video src="/generated_video_showreel.mp4" autoplay="true" loop="" muted="" playsinline="true" crossorigin="anonymous" class="showreel-light" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+        </div>
+      </div>
+    </div></div></div></section><section id="works" class="section works"><div class="container works"><div class="works-word-w"><div class="div-block-2"><div class="works-word-block-state1"><div class="works-word">w</div></div><div class="works-word-block-state1"><div class="works-word o">o</div></div><div class="works-word-block-state1"><div class="works-word r">r</div></div><div class="works-word-block-state1"><div class="works-word k">k</div></div><div class="works-word-block-state1"><div class="works-word">s</div></div></div><div class="div-block-2 hide-tablet"><div class="works-word-block-state2"></div><div class="works-word-block-state2"></div><div class="works-word-block-state2"></div><div class="works-word-block-state2"></div><div class="works-word-block-state2"></div></div></div><div class="space-87"></div><div class="titile-section-work"><h2 line="" class="h3-style">Good brands communicate. <br/>Great brands surprise.</h2></div><div class="work_list_w w-dyn-list"><div role="list" class="work_list w-dyn-items"><div id="w-node-_4052a9ed-bc85-74d6-2f8d-4f251e3cf60d-78a9d1a3" role="listitem" class="work_item w-dyn-item"><h2 line="" class="title-work">Utopia</h2><p line="" class="short-p-work">Where taste meets meaning.</p><a href="/works/utopia" class="work-link w-inline-block" data-video-url="" onclick="openWorkVideo(event, this); return false;" style="display: block; position: relative; text-decoration: none; cursor: pointer;">
   <div class="img-work-w" style="position: relative; width: 100%; aspect-ratio: 1024 / 608; border-radius: 14px; overflow: hidden; background: #0c1012; box-shadow: 0 25px 50px rgba(0,0,0,0.85); border: 1px solid rgba(255,255,255,0.14); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;">
     <img src="/assets/work/musicify-screenshot.webp" loading="eager" alt="Musicify — music streaming app dashboard" sizes="100vw" srcset="/assets/work/musicify-screenshot-p-500.webp 500w, /assets/work/musicify-screenshot-p-800.webp 800w, /assets/work/musicify-screenshot-p-1080.webp 1080w, /assets/work/musicify-screenshot.webp 1600w" class="img-work" style="position: absolute; top: 0; left: 0; width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: top center !important; display: block !important; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;"/>
     <!-- Explore More Hover Overlay -->
@@ -1017,7 +1086,252 @@ console.log(
 })();
 </script>
 
+<script id="hero-fluid-reveal-engine">
+(function() {
+    const glyphPathsData = ["M0.0 7.0H131.97202797202797Q178.96503496503496 7.0 205.3986013986014 27.951048951048946Q231.83216783216784 48.90209790209789 231.83216783216784 86.8881118881119Q231.83216783216784 115.47552447552448 216.95104895104896 133.2937062937063Q202.06993006993008 151.1118881118881 175.04895104895107 156.98601398601397V157.76923076923077Q196.979020979021 161.68531468531467 208.33566433566435 176.76223776223776Q219.6923076923077 191.83916083916085 223.4125874125874 210.04895104895104Q227.13286713286715 228.25874125874125 228.6993006993007 252.93006993006992Q229.8741258741259 268.5944055944056 231.04895104895107 275.25174825174827Q232.22377622377624 281.90909090909093 235.74825174825176 283.0839160839161V287.0H162.51748251748253Q159.7762237762238 284.2587412587413 158.7972027972028 277.6013986013986Q157.8181818181818 270.94405594405595 157.42657342657344 258.02097902097904Q156.64335664335664 237.26573426573427 154.09790209790208 223.55944055944056Q151.55244755244755 209.85314685314685 142.34965034965035 199.6713286713287Q133.14685314685315 189.4895104895105 114.34965034965035 189.4895104895105H70.4895104895105V287.0H0.0ZM118.26573426573427 131.92307692307693Q139.8041958041958 131.92307692307693 150.5734265734266 123.69930069930071Q161.34265734265736 115.47552447552448 161.34265734265736 98.24475524475525Q161.34265734265736 81.013986013986 150.5734265734266 72.79020979020979Q139.8041958041958 64.56643356643357 118.26573426573427 64.56643356643357H70.4895104895105V131.92307692307693Z", "M249.74825174825176 7.0H462.0V64.56643356643357H320.23776223776224V114.3006993006993H442.4195804195804V171.86713286713285H320.23776223776224V229.43356643356643H464.34965034965035V287.0H249.74825174825176Z", "M478.34965034965035 191.83916083916085H549.6223776223776Q549.6223776223776 214.94405594405595 565.090909090909 225.71328671328672Q580.5594405594405 236.4825174825175 606.013986013986 236.4825174825175Q625.2027972027972 236.4825174825175 635.3846153846154 229.62937062937064Q645.5664335664335 222.7762237762238 645.5664335664335 211.41958041958043Q645.5664335664335 200.84615384615384 638.7132867132866 194.1888111888112Q631.8601398601398 187.53146853146853 620.6993006993007 183.02797202797203Q609.5384615384615 178.52447552447552 588.0 172.25874125874125L578.9930069930069 169.5174825174825Q550.4055944055945 160.90209790209792 530.8251748251748 151.1118881118881Q511.24475524475525 141.32167832167832 499.1048951048951 125.26573426573427Q486.96503496503493 109.20979020979021 486.96503496503493 85.71328671328672Q486.96503496503493 42.244755244755254 516.7272727272727 21.48951048951048Q546.4895104895105 0.7342657342657049 595.048951048951 0.7342657342657049Q627.9440559440559 0.7342657342657049 654.5734265734266 11.895104895104879Q681.2027972027972 23.055944055944053 697.0629370629371 43.61538461538461Q712.9230769230769 64.17482517482517 713.7062937062938 91.97902097902099H642.4335664335664Q640.083916083916 75.9230769230769 627.7482517482517 66.7202797202797Q615.4125874125874 57.517482517482506 595.048951048951 57.517482517482506Q578.6013986013986 57.517482517482506 568.8111888111888 63.195804195804186Q559.020979020979 68.87412587412587 559.020979020979 80.62237762237763Q559.020979020979 89.62937062937061 564.3076923076923 95.6993006993007Q569.5944055944055 101.76923076923077 579.972027972028 106.07692307692308Q590.3496503496503 110.38461538461539 610.3216783216783 116.25874125874125Q646.7412587412587 127.22377622377621 667.4965034965035 135.83916083916083Q688.2517482517483 144.45454545454544 702.9370629370629 161.09790209790208Q717.6223776223776 177.74125874125872 717.6223776223776 204.76223776223776Q717.6223776223776 231.3916083916084 704.5034965034965 251.36363636363637Q691.3846153846154 271.3356643356643 666.3216783216783 282.3006993006993Q641.2587412587412 293.26573426573424 606.7972027972028 293.26573426573424Q569.986013986014 293.26573426573424 540.8111888111888 281.12587412587413Q511.6363636363636 268.986013986014 494.993006993007 246.07692307692307Q478.34965034965035 223.16783216783216 478.34965034965035 191.83916083916085Z", "M731.6223776223776 7.0H802.1118881118881V116.65034965034965H898.0559440559441V7.0H968.5454545454545V287.0H898.0559440559441V174.2167832167832H802.1118881118881V287.0H731.6223776223776Z", "M982.5454545454545 7.0H1068.6993006993007L1126.2657342657342 185.57342657342656H1127.048951048951L1184.6153846153845 7.0H1270.7692307692307V287.0H1204.1958041958042V112.73426573426573H1203.4125874125875L1151.3286713286714 287.0H1101.9860139860139L1049.902097902098 112.73426573426573H1049.118881118881V287.0H982.5454545454545Z", "M1391.2867132867134 7.0H1462.167832167832L1569.4685314685314 287.0H1492.3216783216783L1474.3076923076924 228.65034965034965H1378.3636363636365L1360.3496503496503 287.0H1284.7692307692307ZM1458.6433566433566 175.0 1426.923076923077 71.61538461538461H1426.13986013986L1394.4195804195804 175.0Z", "M1643.4685314685314 7.0H1779.3566433566434Q1868.2517482517483 7.0 1868.2517482517483 77.48951048951048Q1868.2517482517483 101.37762237762237 1856.3076923076924 115.86713286713287Q1844.3636363636363 130.35664335664336 1824.7832167832169 137.013986013986V137.7972027972028Q1849.062937062937 142.1048951048951 1864.13986013986 158.55244755244755Q1879.2167832167831 175.0 1879.2167832167831 204.3706293706294Q1879.2167832167831 247.44755244755245 1854.1538461538462 267.2237762237762Q1829.090909090909 287.0 1783.2727272727273 287.0H1643.4685314685314ZM1762.909090909091 229.43356643356643Q1786.013986013986 229.43356643356643 1796.5874125874125 222.1888111888112Q1807.1608391608393 214.94405594405595 1807.1608391608393 196.14685314685315Q1807.1608391608393 177.34965034965035 1796.5874125874125 170.3006993006993Q1786.013986013986 163.25174825174827 1762.909090909091 163.25174825174827H1713.958041958042V229.43356643356643ZM1760.951048951049 120.17482517482517Q1777.7902097902097 120.17482517482517 1786.993006993007 114.30069930069929Q1796.1958041958042 108.42657342657341 1796.1958041958042 92.37062937062936Q1796.1958041958042 76.3146853146853 1786.993006993007 70.44055944055944Q1777.7902097902097 64.56643356643357 1760.951048951049 64.56643356643357H1713.958041958042V120.17482517482517Z", "M1999.7342657342658 7.0H2070.6153846153848L2177.916083916084 287.0H2100.769230769231L2082.755244755245 228.65034965034965H1986.811188811189L1968.7972027972028 287.0H1893.2167832167831ZM2067.090909090909 175.0 2035.3706293706293 71.61538461538461H2034.5874125874125L2002.8671328671328 175.0Z", "M2191.916083916084 7.0H2262.4055944055945L2360.3076923076924 173.43356643356643H2361.0909090909095V7.0H2431.58041958042V287.0H2361.0909090909095L2263.1888111888115 120.56643356643357H2262.4055944055945V287.0H2191.916083916084Z", "M2445.58041958042 185.96503496503496V7.0H2516.0699300699303V185.96503496503496Q2516.0699300699303 212.5944055944056 2527.4265734265737 224.14685314685315Q2538.783216783217 235.6993006993007 2562.671328671329 235.6993006993007Q2586.559440559441 235.6993006993007 2597.916083916084 224.14685314685315Q2609.2727272727275 212.5944055944056 2609.2727272727275 185.96503496503496V7.0H2679.762237762238V185.96503496503496Q2679.762237762238 239.6153846153846 2652.1538461538466 266.4405594405594Q2624.545454545455 293.26573426573424 2562.671328671329 293.26573426573424Q2500.797202797203 293.26573426573424 2473.1888111888115 266.4405594405594Q2445.58041958042 239.6153846153846 2445.58041958042 185.96503496503496Z"];
+    let pathObjects = null;
 
+    function initPathObjects() {
+        if (pathObjects) return;
+        pathObjects = glyphPathsData.map(d => new Path2D(d));
+    }
+
+    function setupHeroReveal() {
+        initPathObjects();
+        const wrap = document.getElementById('hero-interactive-wrap');
+        const canvas = document.getElementById('hero-fluid-canvas');
+        const video = document.getElementById('hero-3d-stream');
+        if (!wrap || !canvas || !video) return;
+
+        const ctx = canvas.getContext('2d', { alpha: true });
+        let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+        let mouse = { x: -2000, y: -2000 };
+        let smoothMouse = { x: -2000, y: -2000 };
+        let prevMouse = { x: -2000, y: -2000 };
+        let vel = { x: 0, y: 0 };
+        let isHovered = false;
+        let revealRadius = 0;
+        let targetRadius = 0;
+
+        let droplets = [];
+
+        function resize() {
+            const rect = wrap.getBoundingClientRect();
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = Math.max(1, Math.round(rect.width * dpr));
+            canvas.height = Math.max(1, Math.round(rect.height * dpr));
+        }
+
+        window.addEventListener('resize', resize);
+        window.addEventListener('orientationchange', resize);
+        resize();
+
+        function ensurePlay() {
+            video.muted = true;
+            video.play().catch(() => {});
+        }
+        ensurePlay();
+        video.addEventListener('canplay', ensurePlay);
+        video.addEventListener('loadeddata', ensurePlay);
+        document.addEventListener('pointerdown', ensurePlay, { once: true });
+        document.addEventListener('touchstart', ensurePlay, { once: true });
+
+        let lastTime = performance.now();
+
+        function onPointerMove(clientX, clientY) {
+            const rect = wrap.getBoundingClientRect();
+            const padX = rect.width * 0.05;
+            const padY = rect.height * 0.5;
+
+            if (
+                clientX >= rect.left - padX &&
+                clientX <= rect.right + padX &&
+                clientY >= rect.top - padY &&
+                clientY <= rect.bottom + padY
+            ) {
+                const x = (clientX - rect.left) * dpr;
+                const y = (clientY - rect.top) * dpr;
+
+                vel.x = x - (prevMouse.x === -2000 ? x : prevMouse.x);
+                vel.y = y - (prevMouse.y === -2000 ? y : prevMouse.y);
+                prevMouse.x = x;
+                prevMouse.y = y;
+
+                mouse.x = x;
+                mouse.y = y;
+                isHovered = true;
+
+                const baseR = Math.max(90 * dpr, rect.height * 1.35 * dpr);
+                const speed = Math.hypot(vel.x, vel.y);
+                targetRadius = baseR + Math.min(speed * 0.7, 50 * dpr);
+
+                droplets.push({
+                    x: x,
+                    y: y,
+                    vx: vel.x * 0.12 + (Math.random() - 0.5) * 3,
+                    vy: vel.y * 0.12 + (Math.random() - 0.5) * 3,
+                    r: targetRadius * (0.6 + Math.random() * 0.4),
+                    baseR: targetRadius * (0.6 + Math.random() * 0.4),
+                    phase: Math.random() * Math.PI * 2,
+                    wobbleSpeed: 4 + Math.random() * 5,
+                    life: 1.0,
+                    decay: 0.03 + Math.random() * 0.02
+                });
+
+                if (droplets.length > 20) droplets.shift();
+            } else {
+                isHovered = false;
+                targetRadius = 0;
+            }
+        }
+
+        window.addEventListener('mousemove', (e) => onPointerMove(e.clientX, e.clientY), { passive: true });
+        window.addEventListener('touchmove', (e) => {
+            if (e.touches && e.touches[0]) onPointerMove(e.touches[0].clientX, e.touches[0].clientY);
+        }, { passive: true });
+
+        window.addEventListener('mouseout', (e) => {
+            if (!e.relatedTarget) { isHovered = false; targetRadius = 0; }
+        });
+        window.addEventListener('touchend', () => { isHovered = false; targetRadius = 0; });
+
+        function drawOrganicBlob(centerX, centerY, radius, time, stretchX, stretchY) {
+            const points = 16;
+            const step = (Math.PI * 2) / points;
+            ctx.beginPath();
+
+            for (let i = 0; i <= points; i++) {
+                const angle = i * step;
+                const ripple = Math.sin(angle * 3 + time * 5) * 0.14 +
+                               Math.cos(angle * 5 - time * 4) * 0.09 +
+                               Math.sin(angle * 2 + time * 3) * 0.07;
+
+                const r = radius * (1.0 + ripple);
+                const px = centerX + Math.cos(angle) * r + stretchX * Math.cos(angle);
+                const py = centerY + Math.sin(angle) * r + stretchY * Math.sin(angle);
+
+                if (i === 0) {
+                    ctx.moveTo(px, py);
+                } else {
+                    const prevAngle = (i - 1) * step;
+                    const prevRipple = Math.sin(prevAngle * 3 + time * 5) * 0.14 +
+                                       Math.cos(prevAngle * 5 - time * 4) * 0.09 +
+                                       Math.sin(prevAngle * 2 + time * 3) * 0.07;
+                    const prevR = radius * (1.0 + prevRipple);
+                    const prevPx = centerX + Math.cos(prevAngle) * prevR + stretchX * Math.cos(prevAngle);
+                    const prevPy = centerY + Math.sin(prevAngle) * prevR + stretchY * Math.sin(prevAngle);
+
+                    const cpx = (prevPx + px) / 2;
+                    const cpy = (prevPy + py) / 2;
+                    ctx.quadraticCurveTo(prevPx, prevPy, cpx, cpy);
+                }
+            }
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        function drawLetterShapes() {
+            const scaleX = canvas.width / 2679.8;
+            const scaleY = canvas.height / 294.0;
+            ctx.save();
+            ctx.scale(scaleX, scaleY);
+            ctx.fillStyle = '#000000';
+            for (let i = 0; i < pathObjects.length; i++) {
+                ctx.fill(pathObjects[i]);
+            }
+            ctx.restore();
+        }
+
+        function render(now) {
+            requestAnimationFrame(render);
+            const dt = (now - lastTime) / 1000.0;
+            lastTime = now;
+            const time = now * 0.001;
+
+            smoothMouse.x += (mouse.x - smoothMouse.x) * 0.22;
+            smoothMouse.y += (mouse.y - smoothMouse.y) * 0.22;
+            revealRadius += (targetRadius - revealRadius) * 0.15;
+
+            // When idle and all droplets have decayed -> clear canvas completely (100% solid black text underneath)
+            if (revealRadius < 0.5 && droplets.length === 0) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                return;
+            }
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Step 1: Draw the 3D registered video frame onto canvas
+            if (video.readyState >= 2) {
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            }
+
+            // Step 2: Apply fluid liquid distortion mask
+            ctx.globalCompositeOperation = 'destination-in';
+
+            // Draw trailing fluid droplets
+            for (let i = droplets.length - 1; i >= 0; i--) {
+                const d = droplets[i];
+                d.x += d.vx * 0.6;
+                d.y += d.vy * 0.6;
+                d.vx *= 0.92;
+                d.vy *= 0.92;
+                d.life -= d.decay;
+                d.r = d.baseR * d.life * (1.0 + Math.sin(time * d.wobbleSpeed + d.phase) * 0.16);
+
+                if (d.life <= 0.01 || d.r <= 1) {
+                    droplets.splice(i, 1);
+                    continue;
+                }
+
+                const grad = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, d.r);
+                grad.addColorStop(0, 'rgba(0, 0, 0, ' + d.life + ')');
+                grad.addColorStop(0.5, 'rgba(0, 0, 0, ' + (d.life * 0.85) + ')');
+                grad.addColorStop(0.8, 'rgba(0, 0, 0, ' + (d.life * 0.35) + ')');
+                grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+                ctx.fillStyle = grad;
+                drawOrganicBlob(d.x, d.y, d.r, time + d.phase, d.vx * 0.8, d.vy * 0.8);
+            }
+
+            // Draw primary liquid cursor head with velocity stretch
+            if (revealRadius > 1) {
+                const grad = ctx.createRadialGradient(
+                    smoothMouse.x, smoothMouse.y, 0,
+                    smoothMouse.x, smoothMouse.y, revealRadius
+                );
+                grad.addColorStop(0, 'rgba(0, 0, 0, 1)');
+                grad.addColorStop(0.45, 'rgba(0, 0, 0, 0.95)');
+                grad.addColorStop(0.75, 'rgba(0, 0, 0, 0.45)');
+                grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+                ctx.fillStyle = grad;
+                const stretchX = Math.min(Math.max(vel.x * 0.4, -40 * dpr), 40 * dpr);
+                const stretchY = Math.min(Math.max(vel.y * 0.4, -30 * dpr), 30 * dpr);
+                drawOrganicBlob(smoothMouse.x, smoothMouse.y, revealRadius, time, stretchX, stretchY);
+            }
+
+            // Step 3: CRITICAL - Clip strictly to RESHMA BANU letter shapes!
+            // This ensures the video is ONLY visible inside the typography glyphs and never leaks into background!
+            ctx.globalCompositeOperation = 'destination-in';
+            drawLetterShapes();
+
+            // Reset composite mode
+            ctx.globalCompositeOperation = 'source-over';
+        }
+
+        requestAnimationFrame(render);
+    }
+
+    window.__initHeroFluidReveal = setupHeroReveal;
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupHeroReveal);
+    } else {
+        setupHeroReveal();
+    }
+})();
+</script>
 
 <!-- Works Section Layout & Clean Flow Fixes -->
 <style>
@@ -1581,39 +1895,6 @@ document.addEventListener('keydown', (e) => {
   }
 });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
